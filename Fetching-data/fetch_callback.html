@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Callbacks</h2>
+
+<p id="demo"></p>
+
+<script>
+
+    // 定義一個 async 函數，負責非同步取得 mycar.html 檔案內容
+    // 使用 fetch 取得 mycar.html 的回應物件
+    // 解析回應內容為純文字，存入 data 變數
+    // 將取得的資料傳給 myCallback 函數處理
+    // 定義 callback 函數，負責將資料顯示在 id="demo" 的元素中
+    // 執行 myFunction，開始非同步流程
+
+    async function myFunction() {
+        let response = await fetch("mycar.html");
+        let data = await response.text();
+        myCallback(data);
+    }
+    function myCallback(data) {
+        document.getElementById("demo").innerHTML = data;
+    }
+    myFunction();
+
+</script>
+
+</body>
+</html>

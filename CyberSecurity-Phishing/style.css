@@ -1,0 +1,292 @@
+/* style.css */
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+
+    .login-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 5%;
+        background-color: #f5f5f5;
+        box-sizing: border-box;
+        background-image: url('https://yolo-cat.github.io/1132-CyberSecurity-Phishing/img/bg.jpg');
+    }
+
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        max-width: 900px;
+        width: 100%;
+        padding: 2rem;
+    }
+
+    .left-column, .right-column {
+        padding: 50px;
+        flex: 1;
+    }
+
+    .left-column {
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-logo img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .login-form {
+        width: 100%;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    input[type="text"], input[type="password"] {
+        width: 100%; /* 確保寬度對齊 */
+        padding: 15px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 12px; /* 增加圓角 */
+        font-size: 18px;
+    }
+
+    button[type="submit"] {
+        width: 100%; /* 確保寬度對齊 */
+        padding: 15px;
+        box-sizing: border-box;
+        background-color: #9b0c15;
+        color: #fff;
+        border: none;
+        border-radius: 12px; /* 增加圓角 */
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #7a0912;
+    }
+
+    .right-column {
+        border-left: 1px solid #dee2e6;
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        font-size: 20px;
+    }
+
+    .notice-text {
+        text-align: center;
+        font-size: large;
+    }
+
+    .notice-text strong {
+        text-align: left;
+        font-size: large;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+    }
+
+    @media (min-width: 768px) {
+        .login-container {
+            flex-direction: row;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .login-container {
+            flex-direction: column;
+        }
+
+        .left-column, .right-column {
+            padding: 20px;
+        }
+    }
+
+    .footer {
+        text-align: center;
+        font-size: 14px;
+        /*放在網頁置底*/
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background-color: #3b2f30;
+        color: #fff;
+        padding: 10px 20px;
+        box-sizing: border-box;
+
+    }
+
+    /*.eupopup-container-bottom, .eupopup-container-bottom , .eupopup-color-default {*/
+    /*    display: block;*/
+    /*    background-color: #3b2f30 !important;*/
+    /*    color: #fff !important;*/
+    /*    border-radius: 8px !important;*/
+    /*    text-align: center !important;*/
+    /*    font-size: 14px !important;*/
+    /*    position: fixed !important;*/
+    /*    padding: 10px 20px !important;*/
+    /*}*/
+
+    /* 彈出視窗樣式 */
+    .popup-modal {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0,0,0,0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+    }
+    .popup-content {
+        background: #fff;
+        padding: 2rem 2.5rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+        text-align: center;
+        font-size: 1.3rem;
+    }
+    .popup-content button {
+        margin-top: 1.5rem;
+        padding: 0.7rem 2.5rem;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 8px;
+        background: #9b0c15;
+        color: #fff;
+        cursor: pointer;
+    }
+    .popup-content button:hover {
+        background: #7a0912;
+    }
+
+    /* 多步驟釣魚辨識教學彈窗樣式（沿用 .popup-modal, .popup-content） */
+
+    /* 教學啟動按鈕樣式 */
+    .phishing-guide-btn {
+        margin-top: 18px;
+        padding: 0.7rem 2.5rem;
+        font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+        border: none;
+        border-radius: 8px;
+        background: #007bff;
+        color: #fff;
+        cursor: pointer;
+        transition: background 0.2s;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.2;
+    }
+    .phishing-guide-btn:hover {
+        background: #0056b3;
+    }
+    .phishing-guide-btn#start-quiz-btn,
+    .phishing-guide-btn[style*="background:#28a745"] {
+        background: #28a745;
+    }
+    .phishing-guide-btn#start-quiz-btn:hover,
+    .phishing-guide-btn[style*="background:#28a745"]:hover {
+        background: #1e7e34;
+    }
+
+    /* 模擬瀏覽器網址列樣式 */
+    .browser-bar {
+        display: flex;
+        align-items: center;
+        background: #e9ecef;
+        border-bottom: 1px solid #ccc;
+        padding: 8px 18px;
+        position: relative;
+        z-index: 2100;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+    .browser-btn {
+        background: #fff;
+        border: 1px solid #bbb;
+        border-radius: 5px;
+        margin-right: 8px;
+        width: 32px;
+        height: 32px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    .browser-btn:hover {
+        background: #f0f0f0;
+    }
+    .browser-url {
+        flex: 1;
+        padding: 7px 14px;
+        border: 1px solid #bbb;
+        border-radius: 7px;
+        font-size: 1.05rem;
+        background: #fff;
+        color: #333;
+        margin-left: 10px;
+        outline: none;
+    }
+
+    /* 憑證檢查按鈕已沿用 .browser-btn 樣式，無需額外新增 */
+
+    /* 登入次數提示彈窗按鈕樣式 */
+    #victim-modal .popup-content button {
+        margin: 1rem 0.7rem 0 0.7rem;
+        padding: 0.7rem 2.2rem;
+        font-size: 1.1rem;
+        border: none;
+        border-radius: 8px;
+        background: #007bff;
+        color: #fff;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+    #victim-modal .popup-content button#victim-close-btn {
+        background: #6c757d;
+    }
+    #victim-modal .popup-content button#victim-close-btn:hover {
+        background: #495057;
+    }
+    #victim-modal .popup-content button#victim-quiz-btn {
+        background: #28a745;
+    }
+    #victim-modal .popup-content button#victim-quiz-btn:hover {
+        background: #1e7e34;
+    }

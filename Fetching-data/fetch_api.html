@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1>JavaScript Fetch API</h1>
+<h2>The fetch() Method</h2>
+<p id="demo">Fetch a file to change this text.</p>
+
+<script>
+
+    // fetch 傳入檔案 “file”，執行 async/await 非同步功能
+    // 傳入並將結果轉換純文字格式
+    // 將 deme 元素取代 html 文字內容
+    // 並傳入 fetch_info.txt
+
+    async function getText(file) {
+        let x = await fetch(file);
+        let y = await x.text();
+        document.getElementById("demo").innerHTML = y;
+    }
+
+    getText("fetch_info.txt");
+
+
+</script>
+
+</body>
+</html>

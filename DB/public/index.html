@@ -1,0 +1,72 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Express</title>
+  <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+
+<body>
+  <h1>Express</h1>
+  <p>Welcome to Express</p>
+
+  <!-- 新增：電影台詞輸入表單 -->
+  <form id="quoteForm" autocomplete="off" onsubmit="return false;">
+    <label>電影腳色 (provider)：<input type="text" id="provider" required></label><br>
+    <label>電影名稱 (movie_name)：<input type="text" id="movie_name" required></label><br>
+    <label>電影台詞 (quote)：<input type="text" id="quote" required></label><br>
+    <button type="submit">送出</button>
+  </form>
+  <p id="resultMsg"></p>
+
+  <!-- 新增：顯示所有電影台詞的表格 -->
+  <table id="quotesTable" border="1" style="margin-top:2em;">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>電影腳色</th>
+        <th>電影名稱</th>
+        <th>電影台詞</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    // 取得所有電影台詞並顯示在表格
+    async function loadQuotes() {
+      const res = await fetch('/api/quotes');
+      const data = await res.json();
+      const tbody = document.querySelector('#quotesTable tbody');
+      tbody.innerHTML = '';
+      data.forEach(row => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${row.id}</td><td>${row.provider}</td><td>${row.movie_name}</td><td>${row.quote}</td>`;
+        tbody.appendChild(tr);
+      });
+    }
+    loadQuotes();
+
+    // 表單送出事件
+    document.getElementById('quoteForm').addEventListener('submit', async function() {
+      const provider = document.getElementById('provider').value.trim();
+      const movie_name = document.getElementById('movie_name').value.trim();
+      const quote = document.getElementById('quote').value.trim();
+      if (!provider || !movie_name || !quote) return;
+      const res = await fetch('/api/insert', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ provider, movie_name, quote })
+      });
+      const msg = await res.text();
+      document.getElementById('resultMsg').textContent = msg;
+      if (res.ok) {
+        this.reset();
+        loadQuotes();
+      }
+    });
+  </script>
+</body>
+
+</html>
